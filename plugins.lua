@@ -5,6 +5,7 @@ local plugins = {
 
   -- Override plugin definition options
 
+  -- lspconfig
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -25,22 +26,38 @@ local plugins = {
   },
 
   -- override plugin configs
+  -- mason
   {
     "williamboman/mason.nvim",
     opts = overrides.mason,
   },
 
+  -- treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
   },
 
+  -- nvimtree
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
 
   -- Install a plugin
+  -- To make a plugin not be loaded
+  -- {
+  --   "NvChad/nvim-colorizer.lua",
+  --   enabled = false
+  -- },
+
+  -- All NvChad plugins are lazy-loaded by default
+  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
+  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
+  -- {
+  --   "mg979/vim-visual-multi",
+  --   lazy = false,
+  -- },
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
@@ -52,19 +69,9 @@ local plugins = {
     "b0o/SchemaStore.nvim",
     version = false, -- last release is way too old
   },
-
-  -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
-
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
   {
     "mg979/vim-visual-multi",
-    -- lazy = false,
+    lazy = false,
   },
 
   -- To use a extras plugin
@@ -75,6 +82,7 @@ local plugins = {
   { import = "custom.configs.extras.trouble" },
   { import = "custom.configs.extras.lightspeed" },
   { import = "custom.configs.extras.ufo" },
+  { import = "custom.configs.extras.gitgraph" },
 }
 
 return plugins

@@ -6,14 +6,19 @@ M.general = {
   n = {
     [";"] = {
       ":",
-      "enter command mode",
+      "Enter command mode",
       opts = {
         nowait = true,
       },
     },
-    ["gd"] = {
-      "<cmd>Telescope lsp_definitions<cr>",
-      "go to definition file",
+  },
+}
+
+M.gitsigns = {
+  n = {
+    ["<leader>gg"] = {
+      "<C-c>:Flog<cr>",
+      "Open git graph",
       opts = {
         nowait = true,
       },
@@ -22,6 +27,17 @@ M.general = {
 }
 
 -- Extras example
+M.lspconfig = {
+  n = {
+    ["gd"] = {
+      "<cmd>Telescope lsp_definitions<cr>",
+      "Go to definition file",
+      opts = {
+        nowait = true,
+      },
+    },
+  },
+}
 
 M.trouble = {
   n = {
@@ -29,7 +45,7 @@ M.trouble = {
       function()
         require("trouble").open()
       end,
-      "open trouble",
+      "Open trouble",
       opts = {
         nowait = true,
       },
@@ -38,7 +54,7 @@ M.trouble = {
       function()
         require("trouble").open "workspace_diagnostics"
       end,
-      "trouble workspace diagnostic",
+      "Trouble workspace diagnostic",
       opts = {
         nowait = true,
       },
@@ -47,7 +63,7 @@ M.trouble = {
       function()
         require("trouble").open "document_diagnostics"
       end,
-      "trouble document diagnostic",
+      "Trouble document diagnostic",
       opts = {
         nowait = true,
       },
@@ -56,7 +72,7 @@ M.trouble = {
       function()
         require("trouble").open "quickfix"
       end,
-      "trouble quickfix",
+      "Trouble quickfix",
       opts = {
         nowait = true,
       },
@@ -65,7 +81,7 @@ M.trouble = {
       function()
         require("trouble").open "loclist"
       end,
-      "trouble loclist",
+      "Trouble loclist",
       opts = {
         nowait = true,
       },
@@ -81,7 +97,7 @@ M.symbols_outline = {
         symbols.open_outline()
         vim.fn.win_gotoid(symbols.view.winnr)
       end,
-      "toggle or focus symbols outline",
+      "Toggle or focus symbols outline",
     },
   },
 }

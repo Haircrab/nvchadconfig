@@ -22,22 +22,27 @@ M.lspconfig = {
 
 M.treesitter = {
   ensure_installed = {
+    -- configs
     "vim",
     "lua",
-    -- web
-    "html",
-    "css",
-    "javascript",
-    "typescript",
-    "tsx",
-    "json",
-    "json5",
-    "jsonc",
-    -- c family
-    "c",
     -- document
     "markdown",
     "markdown_inline",
+    -- c family
+    "c",
+    -- web
+    "html",
+    "css",
+    "json",
+    "json5",
+    "jsonc",
+    -- main languages
+    "javascript",
+    "typescript",
+    "tsx",
+    "go",
+    "rust",
+    "python",
     -- devops
     "terraform",
     "hcl",
@@ -58,6 +63,10 @@ M.mason = {
     "lua-language-server",
     "stylua",
 
+    -- c/cpp stuff
+    "clangd",
+    "clang-format",
+
     -- web dev stuff
     "css-lsp",
     "html-lsp",
@@ -65,13 +74,46 @@ M.mason = {
     "deno",
     "prettier",
 
+    -- python
+    "pyright",
+    "flake8",
+    "black",
+    "mypy",
+    "pydocstyle",
+    "pylint",
+    "pyre",
+    "autoflake",
+    "autopep8",
+    "python-lsp-server",
+
+    -- rust
+    "rust-analyzer",
+    "rustfmt",
+
+    -- go
+    "gopls",
+    "glint",
+    -- "go-debug-adapter",
+    "goimports",
+    "goimports-reviser",
+    "golangci-lint",
+    "golangci-lint-langserver",
+    "golines",
+    "gotests",
+    "gotestsum",
+
     -- devops stuff
+    "tflint",
     "terraform-ls",
     "docker-language-server",
+    "docker-compose-language-service",
+    "yaml-language-server",
+    "yamlfmt",
+    "yamllint",
 
-    -- c/cpp stuff
-    "clangd",
-    "clang-format",
+    -- sql
+    "sqlfluff",
+    "sqls",
   },
 }
 

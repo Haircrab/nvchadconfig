@@ -2,17 +2,31 @@ local null_ls = require "null-ls"
 
 local b = null_ls.builtins
 
-local sources = { -- webdev stuff
+local sources = {
+  -- Lua
+  b.formatting.stylua,
+
+  -- cpp
+  b.formatting.clang_format,
+
+  -- webdev stuff
   b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
   b.formatting.prettier.with {
     -- so prettier works only on these filetypes
     filetypes = { "html", "markdown", "css", "typescript", "javascript", "json" },
   },
-  -- Lua
-  b.formatting.stylua,
-  -- cpp
-  b.formatting.clang_format,
-  -- devops
+
+  -- python
+  b.formatting.black,
+
+  -- rust
+  b.formatting.rustfmt,
+
+  -- go
+  b.formatting.gofmt,
+  b.formatting.goimports,
+
+  -- terraform
   b.formatting.terraform_fmt,
   b.diagnostics.terraform_validate,
 }
