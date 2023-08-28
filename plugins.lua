@@ -1,10 +1,9 @@
 local overrides = require "custom.configs.overrides"
 
+-- All NvChad plugins are lazy-loaded by default
 ---@type NvPluginSpec[]
 local plugins = {
-
   -- Override plugin definition options
-
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
@@ -23,6 +22,20 @@ local plugins = {
     end, -- Override to setup mason-lspconfig
 
     opts = overrides.lspconfig,
+  },
+
+  -- cmp
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup()
+        end,
+      },
+    },
+    opts = overrides.cmp,
   },
 
   -- override plugin configs
@@ -44,45 +57,28 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
-  -- Install a plugin
-  -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
-
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
-  -- {
-  --   "mg979/vim-visual-multi",
-  --   lazy = false,
-  -- },
+  -- copilot
   {
-    "max397574/better-escape.nvim",
+    "zbirenbaum/copilot.lua",
     event = "InsertEnter",
-    config = function()
-      require("better_escape").setup()
-    end,
-  },
-  {
-    "b0o/SchemaStore.nvim",
-    version = false, -- last release is way too old
-  },
-  {
-    "mg979/vim-visual-multi",
-    lazy = false,
+    opts = overrides.copilot,
   },
 
+  -- Install a plugin
   -- To use a extras plugin
-  { import = "custom.configs.extras.copilot" },
+  { import = "custom.configs.extras.better-escape" },
+  -- { import = "custom.configs.extras.copilot" },
   { import = "custom.configs.extras.diffview" },
+  { import = "custom.configs.extras.gitgraph" },
+  { import = "custom.configs.extras.json-schema" },
+  { import = "custom.configs.extras.lightspeed" },
   { import = "custom.configs.extras.mason-extras" },
+  { import = "custom.configs.extras.multi-cursor" },
+  { import = "custom.configs.extras.lang-rust-crates" },
+  { import = "custom.configs.extras.lang-rust-tools" },
   { import = "custom.configs.extras.symbols-outline" },
   { import = "custom.configs.extras.trouble" },
-  { import = "custom.configs.extras.lightspeed" },
   { import = "custom.configs.extras.ufo" },
-  { import = "custom.configs.extras.gitgraph" },
 }
 
 return plugins

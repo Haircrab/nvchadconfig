@@ -14,17 +14,17 @@
 
 ---@type NvPluginSpec
 local spec = {
-  {
-    "github/copilot.vim",
-    lazy = false,
-    -- Mapping tab is already used by NvChad
-    config = function()
-      vim.g.copilot_no_tab_map = true
-      vim.g.copilot_assume_mapped = true
-      vim.g.copilot_tab_fallback = ""
-      -- The mapping is set to other key, see custom/lua/mappings  -- or run <leader>ch to see copilot mapping section
-    end,
-  },
+  -- {
+  --   "github/copilot.vim",
+  --   lazy = false,
+  --   -- Mapping tab is already used by NvChad
+  --   config = function()
+  --     vim.g.copilot_no_tab_map = true
+  --     vim.g.copilot_assume_mapped = true
+  --     vim.g.copilot_tab_fallback = ""
+  --     -- The mapping is set to other key, see custom/lua/mappings  -- or run <leader>ch to see copilot mapping section
+  --   end,
+  -- },
 }
 
 return spec

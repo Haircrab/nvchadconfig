@@ -11,6 +11,26 @@ M.general = {
         nowait = true,
       },
     },
+    ["<C-space>"] = {
+      function()
+        require("cmp").complete()
+      end,
+      "Trigger completion",
+      opts = {
+        nowait = true,
+      },
+    },
+  },
+  i = {
+    ["<C-space>"] = {
+      function()
+        require("cmp").complete()
+      end,
+      "Trigger completion",
+      opts = {
+        nowait = true,
+      },
+    },
   },
 }
 
@@ -101,7 +121,6 @@ M.symbols_outline = {
     },
   },
 }
-
 -- more keybinds!
 
 return M

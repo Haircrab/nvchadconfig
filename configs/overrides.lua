@@ -1,5 +1,20 @@
 local M = {}
 
+M.cmp = function(_, opts)
+  local cmp = require "cmp"
+  opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
+    -- configs
+    { name = "nvim_lsp", group_index = 2 },
+    { name = "copilot", group_index = 2 },
+    { name = "luasnip", group_index = 2 },
+    { name = "buffer", group_index = 2 },
+    { name = "nvim_lua", group_index = 2 },
+    { name = "path", group_index = 2 },
+    -- languages
+    { name = "crates" },
+  }))
+end
+
 M.lspconfig = {
   servers = {
     jsonls = {
@@ -40,9 +55,13 @@ M.treesitter = {
     "javascript",
     "typescript",
     "tsx",
-    "go",
-    "rust",
     "python",
+    -- rust
+    "ron",
+    "rust",
+    "toml",
+    "go",
+
     -- devops
     "terraform",
     "hcl",
@@ -89,6 +108,7 @@ M.mason = {
     -- rust
     "rust-analyzer",
     "rustfmt",
+    "codelldb",
 
     -- go
     "gopls",
@@ -130,6 +150,16 @@ M.nvimtree = {
         git = true,
       },
     },
+  },
+}
+
+-- copilot
+M.copilot = {
+  suggestion = {
+    enable = false,
+  },
+  panel = {
+    enable = false,
   },
 }
 
