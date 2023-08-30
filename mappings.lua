@@ -2,6 +2,13 @@
 --
 local M = {}
 
+M.disabled = {
+  n = {
+    -- disable toggle nvimtree as it conflict with visual multi select
+    ["<C-n>"] = "",
+  },
+}
+
 M.general = {
   n = {
     [";"] = {
@@ -46,7 +53,6 @@ M.gitsigns = {
   },
 }
 
--- Extras example
 M.lspconfig = {
   n = {
     ["gd"] = {
@@ -121,6 +127,24 @@ M.symbols_outline = {
     },
   },
 }
--- more keybinds!
+
+M.nvimtree = {
+  n = {
+    -- toggle
+    ["<leader>l"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+
+    -- focus ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+  },
+}
+
+-- M.telescope = {
+--   plugin = true,
+--
+--   n = {
+--     -- find
+--     ["<leader>fwp"] = { "<C-c>:Telescope live_grep glob_pattern=*.{}<cr>", "Live grep with file type filter" },
+--     ["<leader>fwd"] = { "<C-c>:Telescope live_grep search_dirs=*.{}<cr>", "Live grep with directory filter" },
+--   },
+-- }
 
 return M

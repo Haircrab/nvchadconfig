@@ -11,6 +11,7 @@ local servers = {
   "jsonls",
   "html",
   "cssls",
+  "prismals",
   -- main languages
   "tsserver",
   "pyright",
