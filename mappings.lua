@@ -18,18 +18,9 @@ M.general = {
         nowait = true,
       },
     },
-    ["<C-space>"] = {
-      function()
-        require("cmp").complete()
-      end,
-      "Trigger completion",
-      opts = {
-        nowait = true,
-      },
-    },
   },
   i = {
-    ["<C-space>"] = {
+    ["<C-leader>"] = {
       function()
         require("cmp").complete()
       end,
@@ -131,12 +122,26 @@ M.symbols_outline = {
 M.nvimtree = {
   n = {
     -- toggle
-    ["<leader>l"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+    ["<C-b>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
 
     -- focus ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
   },
 }
 
+M.zen_mode = {
+  n = {
+    ["<leader>z"] = {
+      function()
+        require("zen-mode").toggle {
+          -- window = {
+          --   width = 0.85, -- width will be 85% of the editor width
+          -- },
+        }
+      end,
+      "Toggle zen mode",
+    },
+  },
+}
 -- M.telescope = {
 --   plugin = true,
 --

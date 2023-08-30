@@ -29,3 +29,10 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig.options.tsserver = {
+  keys = {
+    { "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", desc = "Organize Imports" },
+    { "<leader>cR", "<cmd>TypescriptRenameFile<CR>", desc = "Rename File" },
+  },
+}

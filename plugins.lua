@@ -79,6 +79,7 @@ local plugins = {
   { import = "custom.configs.extras.symbols-outline" },
   { import = "custom.configs.extras.trouble" },
   { import = "custom.configs.extras.ufo" },
+  { import = "custom.configs.extras.zen-mode" },
 }
 
 return plugins
