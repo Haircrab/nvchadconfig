@@ -70,6 +70,7 @@ local plugins = {
   -- { import = "custom.configs.extras.copilot" },
   { import = "custom.configs.extras.diffview" },
   { import = "custom.configs.extras.gitgraph" },
+  { import = "custom.configs.extras.harpoon" },
   { import = "custom.configs.extras.json-schema" },
   { import = "custom.configs.extras.lightspeed" },
   { import = "custom.configs.extras.mason-extras" },
@@ -79,6 +80,7 @@ local plugins = {
   { import = "custom.configs.extras.symbols-outline" },
   { import = "custom.configs.extras.trouble" },
   { import = "custom.configs.extras.ufo" },
+  { import = "custom.configs.extras.undo-tree" },
   { import = "custom.configs.extras.zen-mode" },
 }
 

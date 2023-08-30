@@ -16,6 +16,7 @@ M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
 }
 
-vim.highlight.priorities.semantic_tokens = 95
+-- treesitter bug with highlighting
+-- vim.highlight.priorities.semantic_tokens = 95
 
 return M

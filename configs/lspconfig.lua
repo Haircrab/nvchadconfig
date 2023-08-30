@@ -30,9 +30,9 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.options.tsserver = {
-  keys = {
-    { "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", desc = "Organize Imports" },
-    { "<leader>cR", "<cmd>TypescriptRenameFile<CR>", desc = "Rename File" },
-  },
-}
+-- lspconfig.options.tsserver = {
+--   keys = {
+--     { "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", desc = "Organize Imports" },
+--     { "<leader>cR", "<cmd>TypescriptRenameFile<CR>", desc = "Rename File" },
+--   },
+-- }
