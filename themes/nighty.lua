@@ -7,9 +7,7 @@ M.base_30 = {
   black2 = "#252434",
   one_bg = "#2d2c3c", -- real bg of onedark
   -- context color
-
   one_bg2 = "#6c706d",
-  -- one_bg2 = "#363545",
   one_bg3 = "#3e3d4d",
   grey = "#474656",
   grey_fg = "#4e4d5d",
@@ -19,7 +17,6 @@ M.base_30 = {
   baby_pink = "#ffa5c3",
   pink = "#F5C2E7",
   -- backet matching line color
-  -- line = "#6c706d",
   line = "#383747", -- for lines like vertsplit
   green = "#ABE9B3",
   vibrant_green = "#b6f4be",
@@ -44,7 +41,6 @@ M.base_16 = {
   base01 = "#282737",
   -- select line color
   base02 = "#505866",
-  -- base02 = "#2f2e3e",
   base03 = "#383747",
   base04 = "#414050",
   base05 = "#bfc6d4",
@@ -52,38 +48,36 @@ M.base_16 = {
   base07 = "#D9E0EE",
 
   -- main color
-  base08 = "#70A5EB",
-  -- base08 = "#F38BA8",
-
+  base08 = "#9cd1ff",
   -- this color
-  -- base09 = "#f3ac8c",
   base09 = "#F8BD96",
-
+  -- keyword
   base0A = "#FAE3B0",
+  -- string
   base0B = "#ABE9B3",
-
   -- class name color
   base0C = "#F38BA8",
-  -- base0C = "#89DCEB",
-
   -- function method color
-  base0D = "#F38BA8",
-  -- base0D = "#89B4FA",
-  --
+  base0D = "#89B4FA",
+  -- unknown
   base0E = "#CBA6F7",
-  -- token color
-  base0F = "#9cd1ff",
-  -- base0F = "#F38BA8",
+  -- token color, e.g. brackets
+  base0F = "#F38BA8",
 }
 
 M.polish_hl = {
-  ["@constant"] = {
-    fg = "#ecd3a0",
-  },
-  -- ["@kariable"] = { fg = "#c7d1ff" },
-  -- ["@property"] = { fg = "#B5E8E0" },
+  ["@constant"] = { fg = M.base_30.yellow },
+  ["@operator"] = { fg = M.base_30.orange },
+  -- ["@variable"] = { fg = M.base_30.lavender },
+  ["@punctuation"] = { fg = M.base_30.purple },
+  ["@property"] = { fg = M.base_30.teal },
   -- this color
-  ["@variable.builtin"] = { fg = "#f3ac8c" },
+  ["@variable.builtin"] = { fg = M.base_30.orange },
+
+  Comment = {
+    -- bg = M.base_30.grey, -- or M.base_30.cyan
+    italic = true,
+  },
 }
 
 M.type = "dark"
