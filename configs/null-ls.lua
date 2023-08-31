@@ -15,6 +15,8 @@ local sources = {
     -- so prettier works only on these filetypes
     filetypes = { "html", "markdown", "css", "typescript", "javascript", "json" },
   },
+  -- b.formatting.eslint_d,
+  -- b.diagnostics.eslint,
 
   -- python
   b.formatting.black,

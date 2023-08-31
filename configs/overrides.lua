@@ -4,7 +4,9 @@ M.cmp = function(_, opts)
   local cmp = require "cmp"
   opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
     -- configs
-    { name = "nvim_lsp", group_index = 2 },
+
+    -- prevent double suggestion
+    -- { name = "nvim_lsp", group_index = 2 },
     { name = "copilot", group_index = 2 },
     { name = "luasnip", group_index = 2 },
     { name = "buffer", group_index = 2 },
@@ -30,12 +32,6 @@ M.lspconfig = {
           },
           validate = { enable = true },
         },
-      },
-    },
-    tsserver = {
-      keys = {
-        { "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", desc = "Organize Imports" },
-        { "<leader>cR", "<cmd>TypescriptRenameFile<CR>", desc = "Rename File" },
       },
     },
   },

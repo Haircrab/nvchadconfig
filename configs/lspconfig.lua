@@ -13,7 +13,7 @@ local servers = {
   "cssls",
   "prismals",
   -- main languages
-  "tsserver",
+  -- "tsserver",
   "pyright",
   "gopls",
   "rust_analyzer",
@@ -30,9 +30,49 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- lspconfig.options.tsserver = {
---   keys = {
---     { "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", desc = "Organize Imports" },
---     { "<leader>cR", "<cmd>TypescriptRenameFile<CR>", desc = "Rename File" },
---   },
--- }
+-- → typescript.inlayHints.parameterTypes.enabled                                   default: false
+-- → typescript.inlayHints.propertyDeclarationTypes.enabled                         default: false
+-- → typescript.inlayHints.variableTypes.enabled                                    default: false
+
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    typescript = {
+      inlayHints = {
+        parameterTypes = {
+          enabled = true,
+        },
+        propertyDeclarationTypes = {
+          enabled = true,
+        },
+        variableTypes = {
+          enabled = true,
+        },
+      },
+    },
+    -- ["typescript.inlayHints.parameterTypes.enabled"] = true,
+    -- ["typescript.inlayHints.propertyDeclarationTypes.enabled"] = true,
+    -- ["typescript.inlayHints.variableTypes.enabled"] = true,
+  },
+}
+
+local lua_server = {
+  "lua_ls",
+  "lua",
+  "sumneko_lua",
+}
+for _, lsp in ipairs(lua_server) do
+  lspconfig[lsp].setup {
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
+        },
+        telemetry = {
+          enable = false,
+        },
+      },
+    },
+  }
+end
