@@ -70,11 +70,17 @@ M.treesitter = {
     "dockerfile",
     "yaml",
   },
+  autopair = {
+    enable = true,
+  },
+  autotag = {
+    enable = true,
+    enable_rename = true,
+    enable_close = true,
+    enable_close_on_slash = true,
+  },
   indent = {
     enable = true,
-    -- disable = {
-    --   "python"
-    -- },
   },
   highlight = {
     enable = true,
