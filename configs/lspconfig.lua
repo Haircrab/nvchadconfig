@@ -51,9 +51,26 @@ lspconfig.tsserver.setup {
         },
       },
     },
-    -- ["typescript.inlayHints.parameterTypes.enabled"] = true,
-    -- ["typescript.inlayHints.propertyDeclarationTypes.enabled"] = true,
-    -- ["typescript.inlayHints.variableTypes.enabled"] = true,
+  },
+}
+
+lspconfig.volar.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+  settings = {
+    vue = {
+      inlayHints = {
+        inlineHandlerLeading = true,
+        missingProps = true,
+      },
+      updateImportsOnFileMove = {
+        enable = true,
+      },
+      splitEditors = {
+        icon = true,
+      },
+    },
   },
 }
 

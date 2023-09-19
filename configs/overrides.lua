@@ -17,6 +17,7 @@ M.cmp = function(_, opts)
   }))
 end
 
+-- for jsonls
 M.lspconfig = {
   servers = {
     jsonls = {
@@ -53,10 +54,11 @@ M.treesitter = {
     "json",
     "json5",
     "jsonc",
+    "tsx",
+    "vue",
     -- main languages
     "javascript",
     "typescript",
-    "tsx",
     "python",
     -- rust
     "ron",
