@@ -11,6 +11,7 @@ local servers = {
   "jsonls",
   "html",
   "cssls",
+  -- "tailwindcss",
   "prismals",
   -- main languages
   -- "tsserver",
@@ -72,6 +73,12 @@ lspconfig.volar.setup {
       },
     },
   },
+}
+
+lspconfig.tailwindcss.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "javascriptreact", "typescriptreact", "vue" },
 }
 
 local lua_server = {

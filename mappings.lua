@@ -228,7 +228,7 @@ M.harpoon = {
       end,
       "Add file to harpoon",
     },
-    ["<C-h>"] = {
+    ["<C-g>"] = {
       function()
         require("harpoon.ui").toggle_quick_menu()
       end,
