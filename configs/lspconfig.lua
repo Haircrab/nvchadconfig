@@ -31,10 +31,6 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- → typescript.inlayHints.parameterTypes.enabled                                   default: false
--- → typescript.inlayHints.propertyDeclarationTypes.enabled                         default: false
--- → typescript.inlayHints.variableTypes.enabled                                    default: false
-
 lspconfig.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
