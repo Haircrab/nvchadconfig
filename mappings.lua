@@ -18,6 +18,9 @@ M.general = {
         nowait = true,
       },
     },
+    ["<leader>sv"] = {
+      "<cmd>! source $XDG_CONFIG_HOME/nvim/init.lua<CR>",
+    },
   },
   i = {
     ["<C-leader>"] = {
@@ -32,72 +35,70 @@ M.general = {
   },
 }
 
-if vim.g.vscode then
-  M.fold = {
-    n = {
-      ["zM"] = {
-        function()
-          if vim.g.vscode then
-            vim.cmd "call VSCodeNotify('editor.foldAll')"
-          else
-            require("ufo").closeAllFolds()
-          end
-        end,
-        "Close all folds",
-      },
-      ["zR"] = {
-        function()
-          if vim.g.vscode then
-            vim.cmd "call VSCodeNotify('editor.unfoldAll')"
-          else
-            require("ufo").openAllFolds()
-          end
-        end,
-        "Open all folds",
-      },
-      ["zc"] = {
-        function()
-          if vim.g.vscode then
-            vim.cmd "call VSCodeNotify('editor.fold')"
-          end
-        end,
-        "Fold",
-      },
-      ["zC"] = {
-        function()
-          if vim.g.vscode then
-            vim.cmd "call VSCodeNotify('editor.foldRecursively')"
-          end
-        end,
-        "Fold recursively",
-      },
-      ["zo"] = {
-        function()
-          if vim.g.vscode then
-            vim.cmd "call VSCodeNotify('editor.unfold')"
-          end
-        end,
-        "Unfold",
-      },
-      ["zO"] = {
-        function()
-          if vim.g.vscode then
-            vim.cmd "call VSCodeNotify('editor.unfoldRecursively')"
-          end
-        end,
-        "Unfold recursively",
-      },
-      ["za"] = {
-        function()
-          if vim.g.vscode then
-            vim.cmd "call VSCodeNotify('editor.toggleFold')"
-          end
-        end,
-        "Toggle fold",
-      },
+M.fold = {
+  n = {
+    ["zM"] = {
+      function()
+        if vim.g.vscode then
+          vim.cmd "call VSCodeNotify('editor.foldAll')"
+        else
+          require("ufo").closeAllFolds()
+        end
+      end,
+      "Close all folds",
     },
-  }
-end
+    ["zR"] = {
+      function()
+        if vim.g.vscode then
+          vim.cmd "call VSCodeNotify('editor.unfoldAll')"
+        else
+          require("ufo").openAllFolds()
+        end
+      end,
+      "Open all folds",
+    },
+    ["zc"] = {
+      function()
+        if vim.g.vscode then
+          vim.cmd "call VSCodeNotify('editor.fold')"
+        end
+      end,
+      "Fold",
+    },
+    ["zC"] = {
+      function()
+        if vim.g.vscode then
+          vim.cmd "call VSCodeNotify('editor.foldRecursively')"
+        end
+      end,
+      "Fold recursively",
+    },
+    ["zo"] = {
+      function()
+        if vim.g.vscode then
+          vim.cmd "call VSCodeNotify('editor.unfold')"
+        end
+      end,
+      "Unfold",
+    },
+    ["zO"] = {
+      function()
+        if vim.g.vscode then
+          vim.cmd "call VSCodeNotify('editor.unfoldRecursively')"
+        end
+      end,
+      "Unfold recursively",
+    },
+    ["za"] = {
+      function()
+        if vim.g.vscode then
+          vim.cmd "call VSCodeNotify('editor.toggleFold')"
+        end
+      end,
+      "Toggle fold",
+    },
+  },
+}
 
 M.gitsigns = {
   n = {
@@ -234,30 +235,6 @@ M.harpoon = {
       end,
       "Toggle harpoon menu",
     },
-    -- ["<C-h>"] = {
-    --   function()
-    --     require("harpoon.ui").nav_file(1)
-    --   end,
-    --   "Go to harpoon mark 1",
-    -- },
-    -- ["<C-j>"] = {
-    --   function()
-    --     require("harpoon.ui").nav_file(2)
-    --   end,
-    --   "Go to harpoon mark 2",
-    -- },
-    -- ["<C-k>"] = {
-    --   function()
-    --     require("harpoon.ui").nav_file(3)
-    --   end,
-    --   "Go to harpoon mark 3",
-    -- },
-    -- ["<C-l>"] = {
-    --   function()
-    --     require("harpoon.ui").nav_file(4)
-    --   end,
-    --   "Go to harpoon mark 4",
-    -- },
   },
 }
 

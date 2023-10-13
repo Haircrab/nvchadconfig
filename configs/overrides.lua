@@ -15,6 +15,17 @@ M.cmp = function(_, opts)
     -- languages
     { name = "crates" },
   }))
+  cmp.setup {
+    mapping = {
+      -- ["<C-p>"] = cmp.mapping.complete(),
+      ["<C-j>"] = cmp.mapping.select_next_item(),
+      ["<C-k>"] = cmp.mapping.select_prev_item(),
+      -- ["<Tab>"] = cmp.mapping.confirm { select = true },
+      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      -- ["<C-c>"] = cmp.mapping.close(),
+    },
+  }
 end
 
 -- for jsonls
@@ -56,6 +67,7 @@ M.treesitter = {
     "jsonc",
     "tsx",
     "vue",
+    "prisma",
     -- main languages
     "javascript",
     "typescript",

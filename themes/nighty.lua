@@ -63,6 +63,7 @@ M.base_16 = {
   base0E = "#CBA6F7",
   -- token color, e.g. brackets
   base0F = "#F38BA8",
+  -- base0F = "#9cd1ff",
 }
 
 M.polish_hl = {
