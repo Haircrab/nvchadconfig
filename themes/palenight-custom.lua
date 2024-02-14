@@ -34,6 +34,7 @@ M.base_30 = {
   lightbg = "#3c4051",
   pmenu_bg = "#82aaff", -- custom
   folder_bg = "#82aaff",
+  lavender = "#c7d1ff",
 }
 
 M.base_16 = {
@@ -42,40 +43,35 @@ M.base_16 = {
   base02 = "#32374d", -- select line color
   base03 = "#676e95",
   base04 = "#8796b0",
-  base05 = "#d3d3d3",
+  base05 = "#d3d3d3", -- Variable, Operator
   base06 = "#efefef",
   base07 = "#ffffff",
-  -- base08 = "#f07178", -- main color
-  base08 = "#ffffff", -- main color
-  base09 = "#ffa282", -- this color
-  base0A = "#ffcb6b", -- keyword
-  base0B = "#c3e88d", -- string
-  base0C = "#89ddff", -- class name color
-  base0D = "#82aaff", -- function method color
-  base0E = "#c792ea",
-  -- base0F = "#ff5370", -- token color, e.g. brackets
-  base0F = "#CBA6F7", -- token color, e.g. brackets
+  base08 = "#d3d3d3", -- Character, Constant, Identifier, Statement + main color
+  base09 = "#ffa282", -- Boolean, Float, Number
+  base0A = "#f07178", -- Type, TypeDef, Tag, Label, PreProc, Repeat, StorageClass + html tag
+  base0B = "#c3e88d", -- String
+  base0C = "#ffcb6b", --  Special + jsx component
+  base0D = "#82aaff", -- Function, Include
+  base0E = "#c792ea", -- Structure, Conditional, Define, Keyword
+  base0F = "#CBA6F7", --  Brackets, Delimiter, SpecialChar
 }
 
 M.polish_hl = {
-  -- ["@include"] = { fg = M.base_30.purple },
-  -- ["@field.key"] = { fg = M.base_30.orange },
+  ["@variable"] = { fg = M.base_30.lavender },
 
-  ["@constant"] = { fg = M.base_30.white },
-  ["@variable"] = { fg = M.base_30.white },
-  ["@variable.builtin"] = { fg = M.base_30.white },
+  ["@keyword"] = { fg = M.base_30.cyan },
+  Repeat = { fg = M.base_30.cyan },
+  Operator = { fg = M.base_30.cyan },
+  ["@operator"] = { fg = M.base_30.cyan },
 
-  ["@keyword"] = { fg = M.base_16.base0E },
-  ["@keyword.operator"] = { fg = M.base_16.base0E },
-  Boolean = { fg = M.base_16.base0E },
-  Number = { fg = M.base_30.red },
+  ["@property"] = { fg = M.base_16.base04 },
+  ["@type.builtin"] = { fg = M.base_30.purple },
+  Typedef = { fg = M.base_30.yellow },
+  Type = { fg = M.base_30.yellow },
+  Structure = { fg = M.base_30.yellow },
 
-  ["@field"] = { fg = M.base_30.teal },
-  ["@field.key"] = { fg = M.base_30.teal },
-  ["@property"] = { fg = M.base_30.teal },
-  ["@type.builtin"] = { fg = "#CBA6F7" },
-  ["@punctuation.bracket"] = { fg = M.base_30.orange },
-  ["@parenthesis"] = { fg = "#7e57c2" },
+  ["@punctuation.bracket"] = { fg = M.base_30.cyan },
+  -- ["@parenthesis"] = { fg = M.base_30.dark_purple },
 
   Comment = {
     italic = true,

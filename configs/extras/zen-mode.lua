@@ -34,6 +34,7 @@ return {
       },
       gitsigns = { enabled = false }, -- disables git signs
       tmux = { enabled = false }, -- disables the tmux statusline
+      twilight = { enable = true },
     },
   },
 }

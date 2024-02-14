@@ -46,6 +46,18 @@ M.general = {
   },
 }
 
+M.twilight = {
+  n = {
+    ["<leader>ttl"] = {
+      "<C-c>:Twilight<cr>",
+      "Toggle twilight",
+      opts = {
+        nowait = true,
+      },
+    },
+  },
+}
+
 M.gitsigns = {
   n = {
     ["<leader>gg"] = {
@@ -80,7 +92,7 @@ M.lspconfig = {
 
 M.trouble = {
   n = {
-    ["<leader>tx"] = {
+    ["<leader>tr"] = {
       function()
         require("trouble").open()
       end,
@@ -89,7 +101,7 @@ M.trouble = {
         nowait = true,
       },
     },
-    ["<leader>tw"] = {
+    ["<leader>trw"] = {
       function()
         require("trouble").open "workspace_diagnostics"
       end,
@@ -98,7 +110,7 @@ M.trouble = {
         nowait = true,
       },
     },
-    ["<leader>td"] = {
+    ["<leader>trd"] = {
       function()
         require("trouble").open "document_diagnostics"
       end,
@@ -107,20 +119,11 @@ M.trouble = {
         nowait = true,
       },
     },
-    ["<leader>tq"] = {
+    ["<leader>trf"] = {
       function()
         require("trouble").open "quickfix"
       end,
       "Trouble quickfix",
-      opts = {
-        nowait = true,
-      },
-    },
-    ["<leader>tl"] = {
-      function()
-        require("trouble").open "loclist"
-      end,
-      "Trouble loclist",
       opts = {
         nowait = true,
       },
@@ -154,11 +157,7 @@ M.zen_mode = {
   n = {
     ["<leader>z"] = {
       function()
-        require("zen-mode").toggle {
-          -- window = {
-          --   width = 0.85, -- width will be 85% of the editor width
-          -- },
-        }
+        require("zen-mode").toggle()
       end,
       "Toggle zen mode",
     },
