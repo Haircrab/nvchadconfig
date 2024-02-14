@@ -14,6 +14,7 @@ M.base_30 = {
   grey_fg2 = "#555464",
   light_grey = "#605f6f",
   red = "#F38BA8",
+  -- red = "#a8326d",
   baby_pink = "#ffa5c3",
   pink = "#F5C2E7",
   -- backet matching line color
@@ -48,32 +49,50 @@ M.base_16 = {
   base07 = "#D9E0EE",
 
   -- main color
-  base08 = "#9cd1ff",
+  base08 = M.base_30.white,
+  -- base08 = "#9cd1ff",
   -- this color
   base09 = "#F8BD96",
   -- keyword
   base0A = "#FAE3B0",
+  -- base0A = "#F38BA8",
   -- string
   base0B = "#ABE9B3",
   -- class name color
   base0C = "#F38BA8",
+  -- base0C = "#FAE3B0",
   -- function method color
   base0D = "#89B4FA",
   -- unknown
-  base0E = "#CBA6F7",
+  base0E = "#89DDFF",
+  -- base0E = "#CBA6F7",
   -- token color, e.g. brackets
-  base0F = "#F38BA8",
+  base0F = "#CBA6F7",
+  -- base0F = "#F38BA8",
   -- base0F = "#9cd1ff",
 }
 
 M.polish_hl = {
-  ["@constant"] = { fg = M.base_30.yellow },
-  ["@operator"] = { fg = M.base_30.orange },
-  -- ["@variable"] = { fg = M.base_30.lavender },
-  ["@punctuation"] = { fg = M.base_30.purple },
+  ["@constant"] = { fg = M.base_30.white },
+  ["@variable"] = { fg = M.base_30.white },
+  ["@variable.builtin"] = { fg = M.base_30.white },
+
+  ["@operator"] = { fg = M.base_30.purple },
+  ["@keyword"] = { fg = M.base_16.base0E },
+  ["@keyword.operator"] = { fg = M.base_16.base0E },
+  ["@keyword.forloop"] = { fg = M.base_16.base0E },
+  Boolean = { fg = M.base_16.base0E },
+  Number = { fg = "#F38BA8" },
+
+  ["@field"] = { fg = M.base_30.teal },
+  ["@field.key"] = { fg = M.base_30.teal },
   ["@property"] = { fg = M.base_30.teal },
   -- this color
-  ["@variable.builtin"] = { fg = M.base_30.orange },
+  ["@type.builtin"] = { fg = "#CBA6F7" },
+  ["@punctuation.bracket"] = { fg = M.base_30.orange },
+  ["@parenthesis"] = { fg = "#7e57c2" },
+
+  -- ["@error"] = { fg = "#F38BA8" },
 
   Comment = {
     -- bg = M.base_30.grey, -- or M.base_30.cyan

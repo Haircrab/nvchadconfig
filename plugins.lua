@@ -49,7 +49,19 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      { "windwp/nvim-ts-autotag" },
+      {
+        "windwp/nvim-ts-autotag",
+        config = function()
+          require("nvim-treesitter.configs").setup {
+            autotag = {
+              enable = true,
+              enable_rename = true,
+              enable_close = true,
+              enable_close_on_slash = true,
+            },
+          }
+        end,
+      },
     },
     opts = overrides.treesitter,
   },
@@ -67,10 +79,21 @@ local plugins = {
     opts = overrides.copilot,
   },
 
+  {
+    "f-person/git-blame.nvim",
+    lazy = false,
+    config = function()
+      require("gitblame").setup {
+        --Note how the `gitblame_` prefix is omitted in `setup`
+        enabled = true,
+      }
+    end,
+  },
+
   -- Install a plugin
   -- To use a extras plugin
   { import = "custom.configs.extras.better-escape" },
-  -- { import = "custom.configs.extras.copilot" },
+  { import = "custom.configs.extras.better-comment" },
   { import = "custom.configs.extras.diffview" },
   { import = "custom.configs.extras.gitgraph" },
   { import = "custom.configs.extras.harpoon" },

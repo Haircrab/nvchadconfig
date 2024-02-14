@@ -52,32 +52,6 @@ lspconfig.tsserver.setup {
   },
 }
 
--- lspconfig.volar.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
---   settings = {
---     vue = {
---       inlayHints = {
---         inlineHandlerLeading = true,
---         missingProps = true,
---       },
---       updateImportsOnFileMove = {
---         enable = true,
---       },
---       splitEditors = {
---         icon = true,
---       },
---     },
---   },
--- }
-
--- lspconfig.tailwindcss.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   filetypes = { "javascriptreact", "typescriptreact" },
--- }
-
 local lua_server = {
   "lua_ls",
   "lua",

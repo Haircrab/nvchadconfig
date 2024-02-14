@@ -18,8 +18,19 @@ M.general = {
         nowait = true,
       },
     },
-    ["<leader>sv"] = {
-      "<cmd>! source $XDG_CONFIG_HOME/nvim/init.lua<CR>",
+    ["<leader>wv"] = {
+      "<C-c>:vsplit<cr>",
+      "Split vertical",
+      opts = {
+        nowait = true,
+      },
+    },
+    ["<leader>ws"] = {
+      "<C-c>:split<cr>",
+      "Split horizontal",
+      opts = {
+        nowait = true,
+      },
     },
   },
   i = {
@@ -31,71 +42,6 @@ M.general = {
       opts = {
         nowait = true,
       },
-    },
-  },
-}
-
-M.fold = {
-  n = {
-    ["zM"] = {
-      function()
-        if vim.g.vscode then
-          vim.cmd "call VSCodeNotify('editor.foldAll')"
-        else
-          require("ufo").closeAllFolds()
-        end
-      end,
-      "Close all folds",
-    },
-    ["zR"] = {
-      function()
-        if vim.g.vscode then
-          vim.cmd "call VSCodeNotify('editor.unfoldAll')"
-        else
-          require("ufo").openAllFolds()
-        end
-      end,
-      "Open all folds",
-    },
-    ["zc"] = {
-      function()
-        if vim.g.vscode then
-          vim.cmd "call VSCodeNotify('editor.fold')"
-        end
-      end,
-      "Fold",
-    },
-    ["zC"] = {
-      function()
-        if vim.g.vscode then
-          vim.cmd "call VSCodeNotify('editor.foldRecursively')"
-        end
-      end,
-      "Fold recursively",
-    },
-    ["zo"] = {
-      function()
-        if vim.g.vscode then
-          vim.cmd "call VSCodeNotify('editor.unfold')"
-        end
-      end,
-      "Unfold",
-    },
-    ["zO"] = {
-      function()
-        if vim.g.vscode then
-          vim.cmd "call VSCodeNotify('editor.unfoldRecursively')"
-        end
-      end,
-      "Unfold recursively",
-    },
-    ["za"] = {
-      function()
-        if vim.g.vscode then
-          vim.cmd "call VSCodeNotify('editor.toggleFold')"
-        end
-      end,
-      "Toggle fold",
     },
   },
 }
@@ -116,9 +62,7 @@ M.gitsigns = {
         nowait = true,
       },
     },
-    ["<leader>u"] = {
-      "<cmd>UndotreeToggle<cr>",
-    },
+    ["<leader>u"] = { "<cmd>UndotreeToggle<cr>" },
   },
 }
 
