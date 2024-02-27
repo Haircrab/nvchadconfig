@@ -19,6 +19,7 @@ local servers = {
   "pyright",
   "gopls",
   "rust_analyzer",
+  "omnisharp",
   -- devops
   "yamlls",
   "terraformls",
