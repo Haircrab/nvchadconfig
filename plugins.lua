@@ -86,20 +86,14 @@ local plugins = {
     config = function()
       require("gitblame").setup {
         --Note how the `gitblame_` prefix is omitted in `setup`
-        enabled = true,
+        enabled = false,
       }
     end,
   },
 
-  -- twilight
   {
-    "folke/twilight.nvim",
+    "Hoffs/omnisharp-extended-lsp.nvim",
     lazy = false,
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
   },
 
   -- Install a plugin

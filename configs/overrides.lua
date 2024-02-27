@@ -7,24 +7,24 @@ M.cmp = function(_, opts)
     -- { name = "nvim_lsp", group_index = 2 },
     {
       name = "copilot",
-      group_index = 2,
+      group_index = 1,
     },
     {
       name = "luasnip",
       group_index = 2,
     },
-    {
-      name = "buffer",
-      group_index = 2,
-    },
-    {
-      name = "nvim_lua",
-      group_index = 2,
-    },
+    -- {
+    --   name = "buffer",
+    --   group_index = 2,
+    -- },
+    -- {
+    --   name = "nvim_lua",
+    --   group_index = 2,
+    -- },
     {
       name = "path",
       group_index = 2,
-    }, -- languages
+    },
     -- { name = "crates" },
   }))
   cmp.setup {

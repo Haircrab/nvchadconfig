@@ -81,11 +81,15 @@ M.gitsigns = {
 M.lspconfig = {
   n = {
     ["gd"] = {
-      "<cmd>Telescope lsp_definitions<cr>",
-      "Go to definition file",
-      opts = {
-        nowait = true,
-      },
+      function()
+        if vim.bo.filetype == "cs" then
+          require("omnisharp_extended").telescope_lsp_definitions()
+        else
+          vim.lsp.buf.definition()
+        end
+        -- vim.lsp.buf.definition()
+      end,
+      "LSP definition",
     },
   },
 }
