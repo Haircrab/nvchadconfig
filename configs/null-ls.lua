@@ -27,6 +27,7 @@ local sources = {
       "vue",
     },
   },
+  -- b.formatting.prismals,
   -- b.formatting.eslint_d,
   -- b.diagnostics.eslint,
 
@@ -39,6 +40,9 @@ local sources = {
   -- go
   b.formatting.gofmt,
   b.formatting.goimports,
+
+  -- cs
+  b.formatting.csharpier,
 
   -- terraform
   b.formatting.terraform_fmt,

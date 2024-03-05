@@ -36,6 +36,22 @@ local plugins = {
       },
     },
     opts = overrides.cmp,
+    config = function()
+      local cmp = require("cmp")
+      cmp.setup {
+        mapping = {
+          -- ["<C-p>"] = cmp.mapping.complete(),
+          ["<C-j>"] = cmp.mapping.select_next_item(),
+          ["<C-k>"] = cmp.mapping.select_prev_item(),
+          ["<C-d>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select, count = 5 },
+          ["<C-u>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select, count = 5 },
+          -- ["<Tab>"] = cmp.mapping.confirm { select = true },
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-c>"] = cmp.mapping.close(),
+        }
+      }
+    end,
   },
 
   -- override plugin configs
@@ -75,7 +91,8 @@ local plugins = {
   -- copilot
   {
     "zbirenbaum/copilot.lua",
-    event = "InsertEnter",
+    lazy = false,
+    -- event = "InsertEnter",
     opts = overrides.copilot,
   },
 
@@ -105,6 +122,7 @@ local plugins = {
   { import = "custom.configs.extras.harpoon" },
   { import = "custom.configs.extras.json-schema" },
   { import = "custom.configs.extras.lightspeed" },
+  { import = "custom.configs.extras.markdown-preivew" },
   { import = "custom.configs.extras.mason-extras" },
   { import = "custom.configs.extras.multi-cursor" },
   { import = "custom.configs.extras.lang-rust-crates" },

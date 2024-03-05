@@ -7,39 +7,26 @@ M.cmp = function(_, opts)
     -- { name = "nvim_lsp", group_index = 2 },
     {
       name = "copilot",
-      group_index = 1,
-    },
-    {
-      name = "luasnip",
       group_index = 2,
     },
     -- {
-    --   name = "buffer",
+    --   name = "luasnip",
     --   group_index = 2,
     -- },
-    -- {
-    --   name = "nvim_lua",
-    --   group_index = 2,
-    -- },
+    {
+      name = "buffer",
+      group_index = 2,
+    },
+    {
+      name = "nvim_lua",
+      group_index = 2,
+    },
     {
       name = "path",
       group_index = 2,
     },
     -- { name = "crates" },
   }))
-  cmp.setup {
-    mapping = {
-      -- ["<C-p>"] = cmp.mapping.complete(),
-      ["<C-j>"] = cmp.mapping.select_next_item(),
-      ["<C-k>"] = cmp.mapping.select_prev_item(),
-      ["<C-d>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select, count = 5 },
-      ["<C-u>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select, count = 5 },
-      -- ["<Tab>"] = cmp.mapping.confirm { select = true },
-      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-c>"] = cmp.mapping.close(),
-    },
-  }
 end
 
 -- for jsonls
@@ -68,10 +55,10 @@ M.lspconfig = {
 M.treesitter = {
   ensure_installed = { -- configs
     "vim",
-    "lua", -- document
+    "lua",             -- document
     "markdown",
     "markdown_inline", -- c family
-    "c", -- web
+    "c",               -- web
     "c_sharp",
     "html",
     "css",
@@ -104,9 +91,9 @@ M.treesitter = {
 M.mason = {
   ensure_installed = { -- lua stuff
     "lua-language-server",
-    "stylua", -- c/cpp stuff
+    "stylua",          -- c/cpp stuff
     "clangd",
-    "clang-format", -- web dev stuff
+    "clang-format",    -- web dev stuff
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
@@ -129,7 +116,7 @@ M.mason = {
     "rustfmt",
     "codelldb", -- go
     "gopls",
-    "glint", -- "go-debug-adapter",
+    "glint",    -- "go-debug-adapter",
     "goimports",
     "goimports-reviser",
     "golangci-lint",
@@ -158,13 +145,26 @@ M.nvimtree = {
   },
 
   renderer = {
-    -- highlight_git = true,
+    highlight_git = true,
     icons = {
       show = {
         git = true,
       },
     },
   },
+
+  view = {
+    -- adaptive_size = true,
+    -- side = "left",
+    width = 40,
+    preserve_window_proportions = false,
+  },
+
+  filters = {
+    dotfiles = false,
+    git_ignored = false,
+  },
+
 }
 
 -- copilot
