@@ -27,6 +27,7 @@ local plugins = {
   -- cmp
   {
     "hrsh7th/nvim-cmp",
+    -- lazy = false,
     dependencies = {
       {
         "zbirenbaum/copilot-cmp",
@@ -36,22 +37,6 @@ local plugins = {
       },
     },
     opts = overrides.cmp,
-    config = function()
-      local cmp = require("cmp")
-      cmp.setup {
-        mapping = {
-          -- ["<C-p>"] = cmp.mapping.complete(),
-          ["<C-j>"] = cmp.mapping.select_next_item(),
-          ["<C-k>"] = cmp.mapping.select_prev_item(),
-          ["<C-d>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select, count = 5 },
-          ["<C-u>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select, count = 5 },
-          -- ["<Tab>"] = cmp.mapping.confirm { select = true },
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-c>"] = cmp.mapping.close(),
-        }
-      }
-    end,
   },
 
   -- override plugin configs
@@ -111,6 +96,23 @@ local plugins = {
   {
     "Hoffs/omnisharp-extended-lsp.nvim",
     lazy = false,
+  },
+
+  {
+    "junegunn/fzf",
+    lazy = false,
+    build = "./install --bin"
+  },
+
+  {
+    "ibhagwan/fzf-lua",
+    lazy = false,
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({})
+    end
   },
 
   -- Install a plugin

@@ -33,17 +33,6 @@ M.general = {
       },
     },
   },
-  i = {
-    ["<C-leader>"] = {
-      function()
-        require("cmp").complete()
-      end,
-      "Trigger completion",
-      opts = {
-        nowait = true,
-      },
-    },
-  },
 }
 
 
@@ -277,6 +266,16 @@ M.harpoon = {
       "Toggle harpoon menu",
     },
   },
+}
+
+M.telescope = {
+  n = {
+    ["<leader>fz"] = {
+      "<C-c>:FzfLua<cr>",
+      "Open fizzy",
+    },
+
+  }
 }
 
 return M

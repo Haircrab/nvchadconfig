@@ -2,31 +2,33 @@ local M = {}
 
 M.cmp = function(_, opts)
   local cmp = require "cmp"
-  opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { -- configs
-    -- prevent double suggestion
-    -- { name = "nvim_lsp", group_index = 2 },
-    {
-      name = "copilot",
-      group_index = 2,
-    },
-    -- {
-    --   name = "luasnip",
-    --   group_index = 2,
-    -- },
-    {
-      name = "buffer",
-      group_index = 2,
-    },
-    {
-      name = "nvim_lua",
-      group_index = 2,
-    },
-    {
-      name = "path",
-      group_index = 2,
-    },
-    -- { name = "crates" },
-  }))
+  opts = {
+    sources = cmp.config.sources(vim.list_extend(opts.sources, { -- configs
+      -- prevent double suggestion
+      -- { name = "nvim_lsp", group_index = 2 },
+      {
+        name = "copilot",
+        group_index = 2,
+      },
+      -- {
+      --   name = "luasnip",
+      --   group_index = 2,
+      -- },
+      {
+        name = "buffer",
+        group_index = 2,
+      },
+      {
+        name = "nvim_lua",
+        group_index = 2,
+      },
+      {
+        name = "path",
+        group_index = 2,
+      },
+      -- { name = "crates" },
+    })),
+  }
 end
 
 -- for jsonls
