@@ -18,14 +18,14 @@ M.general = {
         nowait = true,
       },
     },
-    ["<leader>wv"] = {
+    ["<C-wv>"] = {
       "<C-c>:vsplit<cr>",
       "Split vertical",
       opts = {
         nowait = true,
       },
     },
-    ["<leader>ws"] = {
+    ["<C-wh>"] = {
       "<C-c>:split<cr>",
       "Split horizontal",
       opts = {
@@ -35,23 +35,29 @@ M.general = {
   },
 }
 
+M.tabuline = {
+  n = {
+    ["<leader><Tab>"] = {
+      "<C-c>:tabNext<cr>",
+      "next tab",
+      opts = {
+        nowait = true,
+      },
+    },
+    ["<leader><S-Tab>"] = {
+      "<C-c>:tabPrevious<cr>",
+      "previous tab",
+      opts = {
+        nowait = true,
+      },
+    },
+  },
+}
+
+
 
 M.gitsigns = {
   n = {
-    ["<leader>gg"] = {
-      "<C-c>:Flog<cr>",
-      "Open git graph",
-      opts = {
-        nowait = true,
-      },
-    },
-    ["<leader>gd"] = {
-      "<cmd>Gitsigns diffthis HEAD~1<cr>",
-      "Open git diff",
-      opts = {
-        nowait = true,
-      },
-    },
     ["<leader>u"] = { "<cmd>UndotreeToggle<cr>" },
   },
 }
@@ -242,13 +248,29 @@ M.nvimtree = {
 
 M.zen_mode = {
   n = {
-    ["<leader>z"] = {
-      function()
-        require("zen-mode").toggle()
-      end,
-      "Toggle zen mode",
+    ["<leader>za"] = {
+      "<C-c>:TZAtaraxis<cr>",
+      "Toggle zen mode ataraxis",
+    },
+    ["<leader>zm"] = {
+      "<C-c>:TZMinimalist<cr>",
+      "Toggle zen mode minimalist",
+    },
+    ["<leader>zn"] = {
+      "<C-c>:TZNarrow<cr>",
+      "Toggle zen mode narrow",
+    },
+    ["<leader>zf"] = {
+      "<C-c>:TZFocus<cr>",
+      "Toggle zen mode focus",
     },
   },
+  v = {
+    ["<leader>zn"] = {
+      "<C-c>:'<,'>TZNarrow<cr>",
+      "Toggle zen mode narrow",
+    },
+  }
 }
 
 M.harpoon = {
@@ -268,13 +290,24 @@ M.harpoon = {
   },
 }
 
-M.telescope = {
+M.fuzzy = {
   n = {
-    ["<leader>fz"] = {
+    ["<leader>fzz"] = {
       "<C-c>:FzfLua<cr>",
       "Open fizzy",
     },
-
+    ["<leader>fzf"] = {
+      "<C-c>:FzfLua files<cr>",
+      "Open fizzy files",
+    },
+    ["<leader>fzw"] = {
+      "<C-c>:FzfLua live_grep<cr>",
+      "Open fizzy live grep",
+    },
+    ["<leader>fzb"] = {
+      "<C-c>:FzfLua buffers<cr>",
+      "Open fizzy buffers",
+    },
   }
 }
 

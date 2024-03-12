@@ -92,37 +92,17 @@ local plugins = {
       }
     end,
   },
-
   {
     "Hoffs/omnisharp-extended-lsp.nvim",
-    lazy = false,
+    ft = "cs",
   },
-
-  {
-    "junegunn/fzf",
-    lazy = false,
-    build = "./install --bin"
-  },
-
-  {
-    "ibhagwan/fzf-lua",
-    lazy = false,
-    -- optional for icon support
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      -- calling `setup` is optional for customization
-      require("fzf-lua").setup({})
-    end
-  },
-
   -- Install a plugin
   -- To use a extras plugin
   { import = "custom.configs.extras.better-escape" },
   { import = "custom.configs.extras.better-comment" },
-  { import = "custom.configs.extras.diffview" },
-  { import = "custom.configs.extras.gitgraph" },
+  { import = "custom.configs.extras.better-todo" },
+  { import = "custom.configs.extras.fzf" },
   { import = "custom.configs.extras.harpoon" },
-  { import = "custom.configs.extras.json-schema" },
   { import = "custom.configs.extras.lightspeed" },
   { import = "custom.configs.extras.markdown-preivew" },
   { import = "custom.configs.extras.mason-extras" },
