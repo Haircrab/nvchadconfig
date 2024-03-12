@@ -61,55 +61,11 @@ M.treesitter = {
   highlight = {
     enable = true,
   },
-}
-
-M.mason = {
-  ensure_installed = { -- lua stuff
-    "lua-language-server",
-    "stylua", -- c/cpp stuff
-    "clangd",
-    "clang-format", -- web dev stuff
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "deno",
-    "prettier", -- python
-    "pyright",
-    "flake8",
-    "black",
-    "mypy",
-    "pydocstyle",
-    "pylint",
-    "pyre",
-    "autoflake",
-    "autopep8",
-    "python-lsp-server",
-    "omnisharp",
-
-    -- rust
-    "rust-analyzer",
-    "rustfmt",
-    "codelldb", -- go
-    "gopls",
-    "glint", -- "go-debug-adapter",
-    "goimports",
-    "goimports-reviser",
-    "golangci-lint",
-    "golangci-lint-langserver",
-    "golines",
-    "gotests",
-    "gotestsum",
-
-    -- devops stuff
-    "tflint",
-    "terraform-ls",
-    "docker-language-server",
-    "docker-compose-language-service",
-    "yaml-language-server",
-    "yamlfmt",
-    "yamllint", -- sql
-    "sqlfluff",
-    "sqls",
+  autotag = {
+    enable = true,
+    enable_rename = true,
+    enable_close = true,
+    enable_close_on_slash = true,
   },
 }
 

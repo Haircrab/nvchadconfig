@@ -1,4 +1,5 @@
 local overrides = require "custom.configs.overrides"
+local custom_lspconfig = require "custom.configs.lspconfig"
 
 -- All NvChad plugins are lazy-loaded by default
 ---@type NvPluginSpec[]
@@ -7,6 +8,10 @@ local plugins = {
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
+    event = { "VeryLazy", "BufRead" },
+    config = function()
+      require "plugins.configs.lspconfig"
+    end,
     dependencies = {
       -- format & linting
       {
@@ -16,16 +21,21 @@ local plugins = {
         end,
       },
       {
+        "williamboman/mason.nvim",
+        config = function(_, opts)
+          custom_lspconfig.mason_setup(opts)
+        end,
+        dependencies = {
+          {
+            "williamboman/mason-lspconfig",
+          },
+        },
+      },
+      {
         "Hoffs/omnisharp-extended-lsp.nvim",
         ft = "cs",
       },
     },
-    config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
-
-    opts = overrides.lspconfig,
   },
 
   -- cmp
@@ -49,28 +59,16 @@ local plugins = {
   },
 
   -- override plugin configs
-  -- mason
-  {
-    "williamboman/mason.nvim",
-    opts = overrides.mason,
-  },
-
   -- treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       {
         "windwp/nvim-ts-autotag",
-        config = function()
-          require("nvim-treesitter.configs").setup {
-            autotag = {
-              enable = true,
-              enable_rename = true,
-              enable_close = true,
-              enable_close_on_slash = true,
-            },
-          }
-        end,
+        -- config = function()
+        --   require("nvim-treesitter.configs").setup {
+        --   }
+        -- end,
       },
     },
     opts = overrides.treesitter,
@@ -91,7 +89,6 @@ local plugins = {
   { import = "custom.configs.extras.harpoon" },
   { import = "custom.configs.extras.lightspeed" },
   { import = "custom.configs.extras.markdown-preivew" },
-  { import = "custom.configs.extras.mason-extras" },
   { import = "custom.configs.extras.multi-cursor" },
   { import = "custom.configs.extras.symbols-outline" },
   { import = "custom.configs.extras.trouble" },

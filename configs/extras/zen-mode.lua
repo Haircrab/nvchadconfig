@@ -1,6 +1,6 @@
 return {
   "folke/zen-mode.nvim",
-  keys = { "<leader>z" },
+  cmd = { "ZenMode" },
   opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
@@ -12,7 +12,7 @@ return {
       -- * a percentage of the width / height of the editor when <= 1
       -- * a function that returns the width or the height
       width = 0.6, -- width of the Zen window
-      height = 1,  -- height of the Zen window
+      height = 1, -- height of the Zen window
       -- by default, no options are changed for the Zen window
       -- uncomment any of the options below, or add other vim.wo options you want to apply
       options = {
@@ -34,10 +34,10 @@ return {
         -- showcmd = false, -- disables the command in the last line of the screen
         -- you may turn on/off statusline in zen mode by setting 'laststatus'
         -- statusline will be shown only if 'laststatus' == 3
-        laststatus = 3,               -- turn off the statusline in zen mode
+        laststatus = 3, -- turn off the statusline in zen mode
       },
       gitsigns = { enabled = false }, -- disables git signs
-      tmux = { enabled = false },     -- disables the tmux statusline
+      tmux = { enabled = false }, -- disables the tmux statusline
       twilight = { enable = false },
     },
   },
