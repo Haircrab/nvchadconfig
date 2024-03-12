@@ -5,15 +5,10 @@ M.cmp = function(_, opts)
   opts = {
     sources = cmp.config.sources(vim.list_extend(opts.sources, { -- configs
       -- prevent double suggestion
-      -- { name = "nvim_lsp", group_index = 2 },
       {
         name = "copilot",
         group_index = 2,
       },
-      -- {
-      --   name = "luasnip",
-      --   group_index = 2,
-      -- },
       {
         name = "buffer",
         group_index = 2,
@@ -26,41 +21,17 @@ M.cmp = function(_, opts)
         name = "path",
         group_index = 2,
       },
-      -- { name = "crates" },
     })),
   }
 end
 
--- for jsonls
-M.lspconfig = {
-  servers = {
-    jsonls = {
-      -- lazy-load schemastore when needed
-      on_new_config = function(new_config)
-        new_config.settings.json.schemas = new_config.settings.json.schemas or {}
-        vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
-      end,
-      settings = {
-        json = {
-          format = {
-            enable = true,
-          },
-          validate = {
-            enable = true,
-          },
-        },
-      },
-    },
-  },
-}
-
 M.treesitter = {
   ensure_installed = { -- configs
     "vim",
-    "lua",             -- document
+    "lua", -- document
     "markdown",
     "markdown_inline", -- c family
-    "c",               -- web
+    "c", -- web
     "c_sharp",
     "html",
     "css",
@@ -77,6 +48,8 @@ M.treesitter = {
     "rust",
     "toml",
     "go", -- devops
+    "kotlin",
+    "java",
     "terraform",
     "hcl",
     "dockerfile",
@@ -93,9 +66,9 @@ M.treesitter = {
 M.mason = {
   ensure_installed = { -- lua stuff
     "lua-language-server",
-    "stylua",          -- c/cpp stuff
+    "stylua", -- c/cpp stuff
     "clangd",
-    "clang-format",    -- web dev stuff
+    "clang-format", -- web dev stuff
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
@@ -118,7 +91,7 @@ M.mason = {
     "rustfmt",
     "codelldb", -- go
     "gopls",
-    "glint",    -- "go-debug-adapter",
+    "glint", -- "go-debug-adapter",
     "goimports",
     "goimports-reviser",
     "golangci-lint",
@@ -166,7 +139,6 @@ M.nvimtree = {
     dotfiles = false,
     git_ignored = false,
   },
-
 }
 
 -- copilot

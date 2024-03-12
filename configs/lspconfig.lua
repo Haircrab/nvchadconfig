@@ -24,6 +24,7 @@ local servers = {
   "yamlls",
   "terraformls",
   "dockerls",
+  "helm-ls",
 }
 
 for _, lsp in ipairs(servers) do

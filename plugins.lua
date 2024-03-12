@@ -15,6 +15,10 @@ local plugins = {
           require "custom.configs.null-ls"
         end,
       },
+      {
+        "Hoffs/omnisharp-extended-lsp.nvim",
+        ft = "cs",
+      },
     },
     config = function()
       require "plugins.configs.lspconfig"
@@ -34,6 +38,11 @@ local plugins = {
         config = function()
           require("copilot_cmp").setup()
         end,
+      },
+      {
+        "zbirenbaum/copilot.lua",
+        event = "InsertEnter",
+        opts = overrides.copilot,
       },
     },
     opts = overrides.cmp,
@@ -66,49 +75,24 @@ local plugins = {
     },
     opts = overrides.treesitter,
   },
-
   -- nvimtree
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
 
-  -- copilot
-  {
-    "zbirenbaum/copilot.lua",
-    lazy = false,
-    -- event = "InsertEnter",
-    opts = overrides.copilot,
-  },
-
-  -- gitblame
-  {
-    "f-person/git-blame.nvim",
-    lazy = false,
-    config = function()
-      require("gitblame").setup {
-        --Note how the `gitblame_` prefix is omitted in `setup`
-        enabled = false,
-      }
-    end,
-  },
-  {
-    "Hoffs/omnisharp-extended-lsp.nvim",
-    ft = "cs",
-  },
   -- Install a plugin
   -- To use a extras plugin
   { import = "custom.configs.extras.better-escape" },
   { import = "custom.configs.extras.better-comment" },
   { import = "custom.configs.extras.better-todo" },
   { import = "custom.configs.extras.fzf" },
+  { import = "custom.configs.extras.gitblame" },
   { import = "custom.configs.extras.harpoon" },
   { import = "custom.configs.extras.lightspeed" },
   { import = "custom.configs.extras.markdown-preivew" },
   { import = "custom.configs.extras.mason-extras" },
   { import = "custom.configs.extras.multi-cursor" },
-  { import = "custom.configs.extras.lang-rust-crates" },
-  { import = "custom.configs.extras.lang-rust-tools" },
   { import = "custom.configs.extras.symbols-outline" },
   { import = "custom.configs.extras.trouble" },
   { import = "custom.configs.extras.ufo" },

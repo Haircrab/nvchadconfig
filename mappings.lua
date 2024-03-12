@@ -35,7 +35,7 @@ M.general = {
   },
 }
 
-M.tabuline = {
+M.tabufline = {
   n = {
     ["<A-t>"] = {
       "<C-c>:tabnew<cr>",
@@ -221,7 +221,6 @@ M.lspconfig = {
       "List workspace folders",
     },
   },
-
 }
 
 M.trouble = {
@@ -332,7 +331,7 @@ M.fuzzy = {
       "<C-c>:FzfLua buffers<cr>",
       "Open fizzy buffers",
     },
-  }
+  },
 }
 
 return M
