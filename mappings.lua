@@ -37,24 +37,64 @@ M.general = {
 
 M.tabuline = {
   n = {
-    ["<leader><Tab>"] = {
-      "<C-c>:tabNext<cr>",
-      "next tab",
-      opts = {
-        nowait = true,
-      },
+    ["<A-t>"] = {
+      "<C-c>:tabnew<cr>",
     },
-    ["<leader><S-Tab>"] = {
-      "<C-c>:tabPrevious<cr>",
-      "previous tab",
-      opts = {
-        nowait = true,
-      },
+    ["<A-w>"] = {
+      "<C-c>:tabclose<cr>",
+    },
+    ["<A-]>"] = {
+      "<C-c>:tabnext<cr>",
+    },
+    ["<A-[>"] = {
+      "<C-c>:tabNext<cr>",
+    },
+    ["<A-1>"] = {
+      "1gt",
+    },
+    ["<A-2>"] = {
+      "2gt",
+    },
+    ["<A-3>"] = {
+      "3gt",
+    },
+    ["<A-4>"] = {
+      "4gt",
+    },
+    ["<A-5>"] = {
+      "5gt",
+    },
+  },
+  i = {
+    ["<A-t>"] = {
+      "<C-c>:tabnew<cr>",
+    },
+    ["<A-w>"] = {
+      "<C-c>:tabclose<cr>",
+    },
+    ["<A-]>"] = {
+      "<C-c>:tabnext<cr>",
+    },
+    ["<A-[>"] = {
+      "<C-c>:tabNext<cr>",
+    },
+    ["<A-1>"] = {
+      "1gt",
+    },
+    ["<A-2>"] = {
+      "2gt",
+    },
+    ["<A-3>"] = {
+      "3gt",
+    },
+    ["<A-4>"] = {
+      "4gt",
+    },
+    ["<A-5>"] = {
+      "5gt",
     },
   },
 }
-
-
 
 M.gitsigns = {
   n = {
@@ -248,29 +288,13 @@ M.nvimtree = {
 
 M.zen_mode = {
   n = {
-    ["<leader>za"] = {
-      "<C-c>:TZAtaraxis<cr>",
-      "Toggle zen mode ataraxis",
-    },
-    ["<leader>zm"] = {
-      "<C-c>:TZMinimalist<cr>",
-      "Toggle zen mode minimalist",
-    },
-    ["<leader>zn"] = {
-      "<C-c>:TZNarrow<cr>",
-      "Toggle zen mode narrow",
-    },
-    ["<leader>zf"] = {
-      "<C-c>:TZFocus<cr>",
-      "Toggle zen mode focus",
+    ["<leader>z"] = {
+      function()
+        require("zen-mode").toggle()
+      end,
+      "Toggle zen mode",
     },
   },
-  v = {
-    ["<leader>zn"] = {
-      "<C-c>:'<,'>TZNarrow<cr>",
-      "Toggle zen mode narrow",
-    },
-  }
 }
 
 M.harpoon = {

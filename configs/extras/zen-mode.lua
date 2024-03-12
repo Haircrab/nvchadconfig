@@ -1,94 +1,44 @@
 return {
-  "Pocco81/true-zen.nvim",
-  cmd = { "TZAtaraxis", "TZMinimalist", "TZNarrow", "TZFocus" },
-  config = function()
-    require("true-zen").setup {
-      -- your config goes here
-      -- or just leave it empty :)
-      {
-        modes = {                    -- configurations per mode
-          ataraxis = {
-            shade = "dark",          -- if `dark` then dim the padding windows, otherwise if it's `light` it'll brighten said windows
-            backdrop = 0,            -- percentage by which padding windows should be dimmed/brightened. Must be a number between 0 and 1. Set to 0 to keep the same background color
-            minimum_writing_area = { -- minimum size of main window
-              width = 70,
-              height = 44,
-            },
-            quit_untoggles = true, -- type :q or :qa to quit Ataraxis mode
-            padding = {            -- padding windows
-              left = 52,
-              right = 52,
-              top = 0,
-              bottom = 0,
-            },
-            callbacks = { -- run functions when opening/closing Ataraxis mode
-              open_pre = nil,
-              open_pos = nil,
-              close_pre = nil,
-              close_pos = nil
-            },
-          },
-          minimalist = {
-            ignored_buf_types = { "nofile" }, -- save current options from any window except ones displaying these kinds of buffers
-            padding = {                       -- padding windows
-              left = 52,
-              right = 52,
-              top = 0,
-              bottom = 0,
-            },
-            options = { -- options to be disabled when entering Minimalist mode
-              number = false,
-              relativenumber = false,
-              showtabline = 0,
-              signcolumn = "no",
-              statusline = "",
-              cmdheight = 1,
-              laststatus = 0,
-              showcmd = false,
-              showmode = false,
-              ruler = false,
-              numberwidth = 1
-            },
-            callbacks = { -- run functions when opening/closing Minimalist mode
-              open_pre = nil,
-              open_pos = nil,
-              close_pre = nil,
-              close_pos = nil
-            },
-          },
-          narrow = {
-            --- change the style of the fold lines. Set it to:
-            --- `informative`: to get nice pre-baked folds
-            --- `invisible`: hide them
-            --- function() end: pass a custom func with your fold lines. See :h foldtext
-            folds_style = "informative",
-            run_ataraxis = true, -- display narrowed text in a Ataraxis session
-            callbacks = {        -- run functions when opening/closing Narrow mode
-              open_pre = nil,
-              open_pos = nil,
-              close_pre = nil,
-              close_pos = nil
-            },
-          },
-          focus = {
-            callbacks = { -- run functions when opening/closing Focus mode
-              open_pre = nil,
-              open_pos = nil,
-              close_pre = nil,
-              close_pos = nil
-            },
-          }
-        },
-        integrations = {
-          tmux = false, -- hide tmux status bar in (minimalist, ataraxis)
-          kitty = {     -- increment font size in Kitty. Note: you must set `allow_remote_control socket-only` and `listen_on unix:/tmp/kitty` in your personal config (ataraxis)
-            enabled = false,
-            font = "+3"
-          },
-          twilight = false, -- enable twilight (ataraxis)
-          lualine = false   -- hide nvim-lualine (ataraxis)
-        },
-      }
-    }
-  end,
+  "folke/zen-mode.nvim",
+  keys = { "<leader>z" },
+  opts = {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+    window = {
+      backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+      -- height and width can be:
+      -- * an absolute number of cells when > 1
+      -- * a percentage of the width / height of the editor when <= 1
+      -- * a function that returns the width or the height
+      width = 0.6, -- width of the Zen window
+      height = 1,  -- height of the Zen window
+      -- by default, no options are changed for the Zen window
+      -- uncomment any of the options below, or add other vim.wo options you want to apply
+      options = {
+        -- signcolumn = "no", -- disable signcolumn
+        -- number = false, -- disable number column
+        -- relativenumber = false, -- disable relative numbers
+        -- cursorline = false, -- disable cursorline
+        -- cursorcolumn = false, -- disable cursor column
+        -- foldcolumn = "0", -- disable fold column
+        -- list = false, -- disable whitespace characters
+      },
+    },
+    plugins = {
+      -- disable some global vim options (vim.o...)
+      -- comment the lines to not apply the options
+      options = {
+        enabled = true,
+        -- ruler = false, -- disables the ruler text in the cmd line area
+        -- showcmd = false, -- disables the command in the last line of the screen
+        -- you may turn on/off statusline in zen mode by setting 'laststatus'
+        -- statusline will be shown only if 'laststatus' == 3
+        laststatus = 3,               -- turn off the statusline in zen mode
+      },
+      gitsigns = { enabled = false }, -- disables git signs
+      tmux = { enabled = false },     -- disables the tmux statusline
+      twilight = { enable = false },
+    },
+  },
 }
