@@ -41,9 +41,6 @@ local sources = {
   b.formatting.gofmt,
   b.formatting.goimports,
 
-  -- cs
-  b.formatting.csharpier,
-
   -- terraform
   b.formatting.terraform_fmt,
   b.diagnostics.terraform_validate,

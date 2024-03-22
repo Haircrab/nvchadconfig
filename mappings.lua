@@ -32,6 +32,10 @@ M.general = {
         nowait = true,
       },
     },
+    ["<leader>cab"] = {
+      "<C-c>:bufdo bd<cr>",
+      "Close all buffers",
+    },
   },
 }
 
@@ -160,7 +164,7 @@ M.nvimtree = {
   n = {
     -- toggle
     ["<C-b>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
-    -- focus ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+    ["<leader>cat"] = { "<cmd> NvimTreeCollapse <CR>", "Collapse nvimtree" },
   },
 }
 

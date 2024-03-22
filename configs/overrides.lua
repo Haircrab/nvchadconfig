@@ -28,10 +28,10 @@ end
 M.treesitter = {
   ensure_installed = { -- configs
     "vim",
-    "lua", -- document
+    "lua",             -- document
     "markdown",
     "markdown_inline", -- c family
-    "c", -- web
+    "c",               -- web
     "c_sharp",
     "html",
     "css",

@@ -1,11 +1,16 @@
 local nv_on_attach = require("plugins.configs.lspconfig").on_attach
-local nv_capabilities = require("plugins.configs.lspconfig").capabilities
+local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
+
+local nv_capabilities = capabilities
+nv_capabilities.textDocument.foldingRange = {
+  -- dynamicRegistration = false,
+  lineFoldingOnly = true
+}
 
 -- local on_attach = function(client, bufnr)
 --   nv_on_attach(client, bufnr)
 -- end
-local on_attach = nv_on_attach
 
 local M = {}
 -- Mason servers' name
@@ -50,7 +55,7 @@ M.mason_setup = function(_, opts)
         --   -- Add your other things here
         --   -- Example being format on save or something
         -- end,
-        on_attach = on_attach,
+        on_attach = nv_on_attach,
         capabilities = nv_capabilities,
       }
     end,
@@ -73,9 +78,10 @@ M.mason_setup = function(_, opts)
           --  Read the `--enable-config` option in `clangd --help` for more information
           "--enable-config",
         },
-        on_attach = function(client, bufnr)
-          on_attach(client, bufnr)
-        end,
+        -- on_attach = function(client, bufnr)
+        --   on_attach(client, bufnr)
+        -- end,
+        on_attach = nv_on_attach,
         capabilities = nv_capabilities,
       }
     end,
@@ -94,7 +100,7 @@ M.mason_setup = function(_, opts)
         vim.lsp.buf.execute_command(params)
       end
       lspconfig.tsserver.setup {
-        on_attach = on_attach,
+        on_attach = nv_on_attach,
         capabilities = nv_capabilities,
         settings = {
           typescript = {
@@ -120,15 +126,61 @@ M.mason_setup = function(_, opts)
       }
     end,
 
-    -- ["prettier"] = function()
-    -- end,
+    ["tailwindcss"] = function()
+      lspconfig.tailwindcss.setup {
+        on_attach = nv_on_attach,
+        capabilities = nv_capabilities,
+        filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "svelte", "vue" },
+      }
+    end,
+
+
+    ["yamlls"] = function()
+      lspconfig.yamlls.setup {
+        on_attach = nv_on_attach,
+        capabilities = nv_capabilities,
+        settings = {
+          yaml = {
+            schemaStore = {
+              enable = true,
+              url = "https://www.schemastore.org/api/json/catalog.json",
+            },
+            schemas = {
+              kubernetes = "*.yaml",
+              ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+              ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+              ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = "azure-pipelines.yml",
+              ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+              ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+              ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+              ["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
+              ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+              ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
+              ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "*gitlab-ci*.{yml,yaml}",
+              ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
+              ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml"] = "/*",
+              ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
+              ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
+            },
+            format = { enabled = false },
+            -- anabling this conflicts between Kubernetes resources and kustomization.yaml and Helmreleases
+            -- see utils.custom_lsp_attach() for the workaround
+            -- how can I detect Kubernetes ONLY yaml files? (no CRDs, Helmreleases, etc.)
+            validate = false,
+            completion = true,
+            hover = true,
+          }
+        }
+      }
+    end,
 
     ["omnisharp"] = function()
       lspconfig.omnisharp.setup {
-        on_attach = on_attach,
+        on_attach = nv_on_attach,
         capabilities = nv_capabilities,
         handlers = {
           ["textDocument/definition"] = require("omnisharp_extended").handler,
+          ["textDocument/typeDefinition"] = require("omnisharp_extended").handler,
         },
         -- Enables support for reading code style, naming convention and analyzer
         -- settings from .editorconfig.
@@ -141,7 +193,7 @@ M.mason_setup = function(_, opts)
         -- incomplete reference lists for symbols.
         enable_ms_build_load_projects_on_demand = false,
         -- Enables support for roslyn analyzers, code fixes and rulesets.
-        enable_roslyn_analyzers = true,
+        enable_roslyn_analyzers = false,
         -- Specifies whether 'using' directives should be grouped and sorted during
         -- document formatting.
         organize_imports_on_format = true,

@@ -90,6 +90,7 @@ local plugins = {
   { import = "custom.configs.extras.lightspeed" },
   { import = "custom.configs.extras.markdown-preivew" },
   { import = "custom.configs.extras.multi-cursor" },
+  { import = "custom.configs.extras.swagger-preview" },
   { import = "custom.configs.extras.symbols-outline" },
   { import = "custom.configs.extras.trouble" },
   { import = "custom.configs.extras.ufo" },
