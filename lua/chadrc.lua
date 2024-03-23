@@ -1,7 +1,6 @@
 ---@type ChadrcConfig
 
 local palenight = require "themes.palenight"
-
 local M = {}
 
 M.ui = {
