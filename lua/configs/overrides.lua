@@ -1,9 +1,34 @@
 local M = {}
 
+M.mason = {
+  ensure_installed = {
+    -- lua
+    "lua-language-server",
+    "stylua", -- format
+    -- web
+    "html-lsp",
+    "css-lsp",
+    "json-lsp",
+    "prettier", -- format
+    "typescript-language-server",
+    "prisma-language-server",
+    -- server
+    "clangd",
+    "omnisharp",
+    "gopls",
+    -- devops
+    "dockerfile-language-server",
+    "docker-compose-language-service",
+    "helm-ls",
+    "yaml-language-server",
+  },
+}
+
 M.cmp = function(_, opts)
   local cmp = require "cmp"
   opts = {
-    sources = cmp.config.sources(vim.list_extend(opts.sources, { -- configs
+    sources = cmp.config.sources(vim.list_extend(opts.sources, {
+      -- configs
       -- prevent double suggestion
       {
         name = "copilot",
@@ -26,13 +51,17 @@ M.cmp = function(_, opts)
 end
 
 M.treesitter = {
-  ensure_installed = { -- configs
+  ensure_installed = {
+    -- vim
     "vim",
-    "lua",             -- document
+    "lua",
+    -- document
     "markdown",
-    "markdown_inline", -- c family
-    "c",               -- web
+    "markdown_inline",
+    -- c family
+    "c",
     "c_sharp",
+    -- web
     "html",
     "css",
     "json",
@@ -40,16 +69,19 @@ M.treesitter = {
     "jsonc",
     "tsx",
     "vue",
-    "prisma", -- main languages
+    "prisma",
+    -- main languages
     "javascript",
     "typescript",
-    "python", -- rust
+    "python",
+    -- rust
     "ron",
     "rust",
     "toml",
-    "go", -- devops
+    "go",
     "kotlin",
     "java",
+    -- devops
     "terraform",
     "hcl",
     "dockerfile",

@@ -1,16 +1,16 @@
-local nv_on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+-- EXAMPLE
+local on_attach = require("nvchad.configs.lspconfig").on_attach
+local on_init = require("nvchad.configs.lspconfig").on_init
+local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 local nv_capabilities = capabilities
+local nv_on_attach = on_attach
+local nv_on_init = on_init
 nv_capabilities.textDocument.foldingRange = {
   -- dynamicRegistration = false,
-  lineFoldingOnly = true
+  lineFoldingOnly = true,
 }
-
--- local on_attach = function(client, bufnr)
---   nv_on_attach(client, bufnr)
--- end
 
 local M = {}
 -- Mason servers' name
@@ -55,39 +55,11 @@ M.mason_setup = function(_, opts)
         --   -- Add your other things here
         --   -- Example being format on save or something
         -- end,
+        on_init = nv_on_init,
         on_attach = nv_on_attach,
         capabilities = nv_capabilities,
       }
     end,
-    -- custom setup for a server goes after the function above
-    -- Example, override rust_analyzer
-    -- ["rust_analyzer"] = function()
-    --   require("rust-tools").setup {}
-    -- end,
-    -- Another example with clangd
-    -- Users usually run into different offset_encodings issue,
-    -- so this is how to bypass it (kindof)
-    ["clangd"] = function()
-      lspconfig.clangd.setup {
-        cmd = {
-          "clangd",
-          "--offset-encoding=utf-16", -- To match null-ls
-          --  With this, you can configure server with
-          --    - .clangd files
-          --    - global clangd/config.yaml files
-          --  Read the `--enable-config` option in `clangd --help` for more information
-          "--enable-config",
-        },
-        -- on_attach = function(client, bufnr)
-        --   on_attach(client, bufnr)
-        -- end,
-        on_attach = nv_on_attach,
-        capabilities = nv_capabilities,
-      }
-    end,
-    -- Example: disable auto configuring an LSP
-    -- Here, we disable lua_ls so we can use NvChad's default config
-    -- ["lua_ls"] = function() end,
 
     -- custome setting
     ["tsserver"] = function()
@@ -100,6 +72,7 @@ M.mason_setup = function(_, opts)
         vim.lsp.buf.execute_command(params)
       end
       lspconfig.tsserver.setup {
+        on_init = nv_on_init,
         on_attach = nv_on_attach,
         capabilities = nv_capabilities,
         settings = {
@@ -128,15 +101,16 @@ M.mason_setup = function(_, opts)
 
     ["tailwindcss"] = function()
       lspconfig.tailwindcss.setup {
+        on_init = nv_on_init,
         on_attach = nv_on_attach,
         capabilities = nv_capabilities,
         filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "svelte", "vue" },
       }
     end,
 
-
     ["yamlls"] = function()
       lspconfig.yamlls.setup {
+        on_init = nv_on_init,
         on_attach = nv_on_attach,
         capabilities = nv_capabilities,
         settings = {
@@ -169,13 +143,14 @@ M.mason_setup = function(_, opts)
             validate = false,
             completion = true,
             hover = true,
-          }
-        }
+          },
+        },
       }
     end,
 
     ["omnisharp"] = function()
       lspconfig.omnisharp.setup {
+        on_init = nv_on_init,
         on_attach = nv_on_attach,
         capabilities = nv_capabilities,
         handlers = {
