@@ -19,6 +19,32 @@ keymap.set("i", "<C-b>", "<ESC>^i")
 -- end of line
 keymap.set("i", "<C-e>", "<End>")
 
+local vscode = require('vscode-neovim')
+
+local function mapMove(mode, key, direction)
+  vim.keymap.set(mode, key, function()
+    local count = vim.v.count
+    local v = 1
+    local style = 'wrappedLine'
+    if count > 0 then
+      v = count
+      style = 'line'
+    end
+    vscode.action('cursorMove', {
+      args = {
+        to = direction,
+        by = style,
+        value = v
+      }
+    })
+  end, options)
+end
+
+mapMove('n', 'k', 'up')
+mapMove('n', 'j', 'down')
+mapMove('v', 'k', 'up')
+mapMove('v', 'j', 'down')
+
 --  normal mode
 if g.vscode then
   keymap.set("n", "zM", "<cmd>call VSCodeNotify('editor.foldAll')<CR>")
