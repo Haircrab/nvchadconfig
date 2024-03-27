@@ -5,6 +5,19 @@ M.ui = {
   theme = "palenight-custom"
 };
 
+M.ui.term = {
+  -- hl = "Normal:term,WinSeparator:WinSeparator",
+  sizes = { sp = 0.3, vsp = 0.2 },
+  float = {
+    relative = "editor",
+    row = 0.2,
+    col = 0.15,
+    width = 1,
+    height = 0.9,
+    border = "single",
+  },
+}
+
 M.ui.hl_override = {
   ["@variable"] = { fg = "#c7d1ff" },
 
