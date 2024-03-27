@@ -129,6 +129,7 @@ M.gitsigns = {
 
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
+    gs.toggle_current_line_blame()
 
     local function opts(desc)
       return { buffer = bufnr, desc = desc }
@@ -148,7 +149,7 @@ M.gitsigns = {
       return '<Ignore>'
     end, { expr = true })
 
-    map("n", "<leader>ghs", gs.reset_hunk, opts "Stage Hunk")
+    map("n", "<leader>ghs", gs.stage_hunk, opts "Stage Hunk")
     map('v', '<leader>ghs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, opts "Stage Hunk")
 
     map("n", "<leader>ghr", gs.reset_hunk, opts "Reset Hunk")
@@ -157,6 +158,7 @@ M.gitsigns = {
     map('n', '<leader>ghu', gs.undo_stage_hunk, opts "undo_stage_hunk")
 
     map("n", "<leader>ghp", gs.preview_hunk, opts "Preview Hunk")
+
     map('n', '<leader>tb', gs.toggle_current_line_blame, opts "toggle line blame")
   end,
 }
