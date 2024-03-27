@@ -93,7 +93,6 @@ return {
   { import = "plugins.extras.better-comment" },
   { import = "plugins.extras.better-todo" },
   { import = "plugins.extras.fzf" },
-  { import = "plugins.extras.gitblame" },
   { import = "plugins.extras.harpoon" },
   { import = "plugins.extras.lightspeed" },
   { import = "plugins.extras.markdown-preivew" },

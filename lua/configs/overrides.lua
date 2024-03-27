@@ -73,7 +73,7 @@ M.treesitter = {
   autotag = {
     enable = true,
     enable_rename = true,
-    enable_close = true,
+    enable_close = false,
     enable_close_on_slash = true,
   },
 }
@@ -147,9 +147,17 @@ M.gitsigns = {
       vim.schedule(function() gs.prev_hunk() end)
       return '<Ignore>'
     end, { expr = true })
-    map("n", "<leader>rh", gs.reset_hunk, opts "Reset Hunk")
-    map("n", "<leader>ph", gs.preview_hunk, opts "Preview Hunk")
-    map("n", "<leader>gb", gs.blame_line, opts "Blame Line")
+
+    map("n", "<leader>ghs", gs.reset_hunk, opts "Stage Hunk")
+    map('v', '<leader>ghs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, opts "Stage Hunk")
+
+    map("n", "<leader>ghr", gs.reset_hunk, opts "Reset Hunk")
+    map('v', '<leader>ghr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end, opts "Reset Hunk")
+
+    map('n', '<leader>ghu', gs.undo_stage_hunk, opts "undo_stage_hunk")
+
+    map("n", "<leader>ghp", gs.preview_hunk, opts "Preview Hunk")
+    map('n', '<leader>tb', gs.toggle_current_line_blame, opts "toggle line blame")
   end,
 }
 
